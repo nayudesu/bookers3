@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  Homes
+  Users
+  Books
+  <%= link_to destroy_user_session_path do %>Log out<% end %>
+<% else %>
+  Homes
+  About
+  Log in
+<% end %>
