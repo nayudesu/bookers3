@@ -4,7 +4,8 @@
   Books
   <%= link_to destroy_user_session_path do %>Log out<% end %>
 <% else %>
-  Homes
-  About
-  Log in
+  <%= link_to root_path do %>Homes<% end %>
+  <%= link_to homes_adout_path do %>About<% end %>
+  <%= link_to new_user_registration_path do %>Sign up<% end %>
+  <%= link_to new_user_session_path do %>Log in<% end %>
 <% end %>
