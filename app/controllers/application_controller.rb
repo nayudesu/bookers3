@@ -1,6 +1,15 @@
 class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  #　マイページに変更
+  def after_sign_in_path_for(resource)
+    users_path
+  end 
+
+  def after_sign_out_path_for(resource)
+    adout_path
+  end 
 
   protected
 
