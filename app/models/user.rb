@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_one_attached:profile_image
+  has_many :books
   
   # 各ページで表示サイズ
   def get_profile_image(width, height)
