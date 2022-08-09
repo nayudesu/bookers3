@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
-  Homes
-  Users
-  Books
+  <%= link_to user_path(current_user.id) do %>Homes<% end %>
+  <%= link_to users_path do %>Users<% end %>
+  <%= link_to books_path do %>Books<% end %>
   <%= link_to destroy_user_session_path do %>Log out<% end %>
 <% else %>
   <%= link_to root_path do %>Homes<% end %>
