@@ -12,9 +12,13 @@
 
   <body>
     <header>
+      <p id="notice"><%= flash[:notice] %></p>
       <%= render 'layouts/header' %>
     </header>
-    <%= yield %>
+    <main>
+      
+      <%= yield %>
+    </main>
     <footer>CopyRight Infratop.inc</footer>
   </body>
 </html>
