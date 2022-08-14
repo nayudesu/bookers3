@@ -1,6 +1,6 @@
-<%= render 'books/error', book: @new_book %>
+<%= render 'books/error', book: @book %>
 <%= render 'users/profile', user: @user %>
-<%= render 'books/form' %>
+<%= render 'books/form', book: @book %>
 
 <h1>Books</h1>
  <% @books.each do |book| %>
