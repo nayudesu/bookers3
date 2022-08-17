@@ -1,33 +1,40 @@
-<%= render 'books/error', book: @book %>
-<%= render 'users/profile', user: @user %>
-<%= render 'books/form' %>
-
-<h1>Book detail</h1>
-  <table>
-    <tr>
-      <td>
-        <%= link_to user_path(@book.user) do %>
-          <%= image_tag @book.user.get_profile_image(80,80) %>
-        <% end %>
-        <p>
-          <%= link_to user_path(@book.user) do %>
-            <%= @book.user.name %>
+<div class="container">
+  <%= render 'books/error', book: @book %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/profile', user: @user %>
+      <%= render 'books/form' %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h1>Book detail</h1>
+      <table>
+        <tr>
+          <td>
+            <%= link_to user_path(@book.user) do %>
+              <%= image_tag @book.user.get_profile_image(80,80) %>
+            <% end %>
+            <p>
+              <%= link_to user_path(@book.user) do %>
+                <%= @book.user.name %>
+              <% end %>
+            </p>
+          </td>
+          <td>
+            <%= link_to book_path(@book) do %>
+              <%= @book.title %>
+            <% end %>
+          </td>
+          <td><%= @book.body %></td>
+          <% if @book.user == current_user %>
+          <td>
+            <%= link_to 'Edit', edit_book_path(@book) %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}  %>
+          </td>
           <% end %>
-        </p>
-      </td>
-      <td>
-        <%= link_to book_path(@book) do %>
-          <%= @book.title %>
-        <% end %>
-      </td>
-      <td><%= @book.body %></td>
-      <% if @book.user == current_user %>
-      <td>
-        <%= link_to 'Edit', edit_book_path(@book) %>
-      </td>
-      <td>
-        <%= link_to 'Destroy', book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}  %>
-      </td>
-      <% end %>
-    </tr>
-  </table>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
