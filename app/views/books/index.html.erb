@@ -1,28 +1,35 @@
-<%= render 'books/error', book: @book %>
-<%= render 'users/profile', user: @user %>
-<%= render 'books/form', book: @book %>
-
-<h1>Books</h1>
- <% @books.each do |book| %>
-   <table>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-    <tr>
-      <td>
-        <%= link_to user_path(book.user.id) do %>
-          <%= image_tag book.user.get_profile_image(80,80) %></td>
-        <% end %>
-      <td>
-        <%= link_to book_path(book) do %>
-          <%= book.title %>
-        <% end %>
-      </td>
-      <td>
-        <%= book.body %>
-      </td>
-     </tr>
-   </table>
-<% end %>
+<div class="container">
+  <%= render 'books/error', book: @book %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/profile', user: @user %>
+      <%= render 'books/form', book: @book %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h1>Books</h1>
+       <% @books.each do |book| %>
+         <table>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to user_path(book.user.id) do %>
+                <%= image_tag book.user.get_profile_image(80,80) %></td>
+              <% end %>
+            <td>
+              <%= link_to book_path(book) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= book.body %>
+            </td>
+           </tr>
+         </table>
+      <% end %>
+    </div>
+  </div>
+</div>
